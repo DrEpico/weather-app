@@ -1,8 +1,9 @@
-import { addMainPane } from "./pageElements";
+import { addMainPane, addInfoPane } from "./pageElements";
 
 const body = document.querySelector('body');
 
 addMainPane(body);
+addInfoPane(body);
 
 async function getCurrentWeather(searchContent){
     let currentConditionElement;
