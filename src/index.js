@@ -16,12 +16,14 @@ searchButton.addEventListener('click', function(){
 // img.setAttribute('src', '#');
 
 async function getCurrentWeather(searchContent){
+    let currentConditionElement;
     try {
         const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=195157837b034a1d883103942240706&q=${searchContent}&aqi=no`, {mode: 'cors'});
         const weatherData = await response.json();//parse to js object from json
-        if (weatherData) {
+
+        if (weatherData.current) {
             let currentConditionText = weatherData.current.condition.text;
-            let currentConditionElement = document.createElement('span');
+            currentConditionElement = document.createElement('span');
             currentConditionElement.textContent = currentConditionText;
             body.appendChild(currentConditionElement);
         } else {
@@ -35,7 +37,7 @@ async function getCurrentWeather(searchContent){
         // Handle network errors or other fetch-related errors
         // img.src = 'https://via.placeholder.com/150?text=Error';
         console.error('An error occurred:', error);
-        currentConditionElement.textContent = "Network error"
+        // currentConditionElement.textContent = "Network error"
     }
     
 }
