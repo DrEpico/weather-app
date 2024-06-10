@@ -1,19 +1,8 @@
+import { addMainPane } from "./pageElements";
+
 const body = document.querySelector('body');
-let searchDiv = document.createElement('div');
-let searchBox = document.createElement('input');
-let searchButton = document.createElement('button');
-searchButton.textContent = "Search";
-searchDiv.appendChild(searchBox);
-searchDiv.appendChild(searchButton);
-body.appendChild(searchDiv);
 
-searchButton.addEventListener('click', function(){
-    searchContent = searchBox.value.trim();
-    getCurrentWeather(searchContent);
-});
-
-// let img = document.createElement('span');
-// img.setAttribute('src', '#');
+addMainPane(body);
 
 async function getCurrentWeather(searchContent){
     let currentConditionElement;
