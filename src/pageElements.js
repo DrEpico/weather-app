@@ -34,7 +34,7 @@ export function addMainPane(parent){
 }
 
 function addSearchBox(parent){
-    let searchDiv = document.createElement('form');
+    let searchDiv = document.createElement('div');
     let searchBox = document.createElement('input');
     let searchButton = document.createElement('button');
     searchButton.textContent = "Search";
@@ -42,10 +42,9 @@ function addSearchBox(parent){
     searchDiv.appendChild(searchButton);
     parent.appendChild(searchDiv);
 
-    searchButton.addEventListener('click', function(event){
-        event.preventDefault();
+    searchButton.addEventListener('click', function(){
         let searchContent = searchBox.value.trim();
-        getCurrentWeather(body, searchContent);
+        getCurrentWeather(parent, searchContent);
     });
 }
 
