@@ -1,3 +1,5 @@
+import { getCurrentWeather } from './apiHandler';
+
 const body = document.querySelector('body');
 
 export function addMainPane(parent){
@@ -40,9 +42,10 @@ function addSearchBox(parent){
     searchDiv.appendChild(searchButton);
     parent.appendChild(searchDiv);
 
-    searchButton.addEventListener('click', function(){
-        searchContent = searchBox.value.trim();
-        getCurrentWeather(searchContent);
+    searchButton.addEventListener('click', function(event){
+        event.preventDefault();
+        let searchContent = searchBox.value.trim();
+        getCurrentWeather(body, searchContent);
     });
 }
 
