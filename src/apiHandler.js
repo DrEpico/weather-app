@@ -5,7 +5,7 @@ export async function getCurrentWeather(parent, searchContent){
     let tempretureElement;
     let isDayElement;
     try {
-        const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=195157837b034a1d883103942240706&q=${searchContent}&days=1&aqi=yes&alerts=yes`, {mode: 'cors'});
+        const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=195157837b034a1d883103942240706&q=${searchContent}&days=3&aqi=yes&alerts=yes`, {mode: 'cors'});
         const weatherData = await response.json();//parse to js object from json
         console.log(weatherData);
         if (weatherData.current) {
@@ -29,5 +29,20 @@ export async function getCurrentWeather(parent, searchContent){
         console.error('An error occurred:', error);
     }
     
+}
+
+export async function getForecast(searchContent){
+    try {
+        const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=195157837b034a1d883103942240706&q=${searchContent}&days=3&aqi=yes&alerts=yes`, {mode: 'cors'});
+        const weatherData = await response.json();//parse to js object from json
+        if (weatherData.current) {//TODO: loop this for 3 days and append info
+            console.log(weatherData.forecast.forecastday[0].day.condition.text);
+            console.log(weatherData.forecast.forecastday[0].day.avgtemp_c);
+        } else {
+            console.log('No data found for the search keyword.');
+        }
+    } catch (error){
+        console.error('An error occurred:', error);
+    }
 }
 

@@ -1,4 +1,4 @@
-import { getCurrentWeather } from './apiHandler';
+import { getCurrentWeather, getForecast } from './apiHandler';
 
 const body = document.querySelector('body');
 
@@ -45,6 +45,7 @@ function addSearchBox(parent){
     searchButton.addEventListener('click', function(){
         let searchContent = searchBox.value.trim();
         getCurrentWeather(parent, searchContent);
+        getForecast(searchContent);
     });
 }
 
