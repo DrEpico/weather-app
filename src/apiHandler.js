@@ -5,7 +5,7 @@ export async function getWeather(searchContent){
     try {
         const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=195157837b034a1d883103942240706&q=${searchContent}&days=3&aqi=yes&alerts=yes`, {mode: 'cors'});
         weatherData = await response.json();//parse to js object from json
-        return weatherData;
+        console.log(weatherData);
     } catch (error) {
         console.error('An error occurred:', error);
     }
@@ -15,7 +15,7 @@ export function appendCurrentWeather(parent){
     let currentWeatherElement;
     let tempretureElement;
     let isDayElement;
-    if (weatherData.CDN-Status === "200") {
+    if (weatherData.current) {
         currentWeatherElement = document.createElement('span');
         tempretureElement = document.createElement('span');
         isDayElement = document.createElement('span');
@@ -34,11 +34,11 @@ export function appendCurrentWeather(parent){
     }
 }
 
-export async function getForecast(){
+export async function appendDailyForecast(){
     try {
         // const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=195157837b034a1d883103942240706&q=${searchContent}&days=3&aqi=yes&alerts=yes`, {mode: 'cors'});
         // const weatherData = await response.json();//parse to js object from json
-        if (weatherData.CDN-Status === "200") {//TODO: loop this for 3 days and append info
+        if (weatherData.current) {//TODO: loop this for 3 days and append info
             console.log(weatherData.forecast.forecastday[0].day.condition.text);
             console.log(weatherData.forecast.forecastday[0].day.avgtemp_c);
         } else {
