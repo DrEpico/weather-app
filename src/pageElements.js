@@ -1,4 +1,4 @@
-import { getWeather, appendCurrentWeather, weatherData, appendDailyForecast} from './apiHandler';
+import { getWeather, appendCurrentWeather, weatherData, appendDailyForecast, appendDetails} from './apiHandler';
 
 const body = document.querySelector('body');
 
@@ -47,6 +47,7 @@ function addSearchBox(parent){
         await getWeather(searchContent);
         appendCurrentWeather(parent);
         appendDailyForecast(parent);
+        appendDetails(parent);
     });
 }
 

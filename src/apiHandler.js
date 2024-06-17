@@ -34,21 +34,38 @@ export function appendCurrentWeather(parent){
     }
 }
 
-export async function appendDailyForecast(){
-    try {
-        // const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=195157837b034a1d883103942240706&q=${searchContent}&days=3&aqi=yes&alerts=yes`, {mode: 'cors'});
-        // const weatherData = await response.json();//parse to js object from json
-        if (weatherData.current) {//TODO: loop this for 3 days and append info
-            for(let i = 0; i < weatherData.forecast.forecastday.length; i++){
-                console.log(weatherData.forecast.forecastday[i].day.condition.text);
-                console.log(weatherData.forecast.forecastday[i].day.avgtemp_c);
-            }
-            
-        } else {
-            console.log('No data found for the search keyword.');
+export async function appendDailyForecast(parent){
+    if (weatherData.current) {//TODO: loop this for 3 days and append info
+        for(let i = 0; i < 3; i++){
+            console.log(weatherData.forecast.forecastday[i].day.condition.text);
+            console.log(weatherData.forecast.forecastday[i].day.avgtemp_c);
         }
-    } catch (error){
-        console.error('An error occurred:', error);
+    } else {
+        console.log('No data found for the search keyword.');
+    }
+}
+
+export function appendDetails(parent){
+    if (weatherData.current) {//TODO: loop this for 3 days and append info
+        //wind
+        console.log(weatherData.current.wind_kph);
+        console.log(weatherData.current.wind_dir);
+        //precip
+        console.log(weatherData.current.precip_mm);
+        console.log(weatherData.forecast.forecastday[0].day.totalprecip_mm);
+        //humidity
+        console.log(weatherData.current.humidity);
+        //UV
+        console.log(weatherData.current.uv);
+        //temp
+        console.log(weatherData.forecast.forecastday[0].day.maxtemp_c);
+        console.log(weatherData.forecast.forecastday[0].day.avgtemp_c);
+        console.log(weatherData.forecast.forecastday[0].day.mintemp_c);
+        //astro
+        console.log(weatherData.forecast.forecastday[0].astro.sunrise);
+        console.log(weatherData.forecast.forecastday[0].astro.sunset);
+    } else {
+        console.log('No data found for the search keyword.');
     }
 }
 
