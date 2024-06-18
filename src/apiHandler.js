@@ -26,9 +26,10 @@ export function appendCurrentWeather(parent){
         currentWeatherElement.textContent = currentWeather;
         tempretureElement.textContent = tempreture;
         isDayElement.textContent = isDay;
-        parent.appendChild(currentWeatherElement);
-        parent.appendChild(tempretureElement);
-        parent.appendChild(isDayElement);
+        let cwElement = document.querySelector('#currentWeather');
+        cwElement.appendChild(currentWeatherElement);
+        cwElement.appendChild(tempretureElement);
+        cwElement.appendChild(isDayElement);
     } else {
         console.log('No data found for the search keyword.');
     }
@@ -48,22 +49,22 @@ export async function appendDailyForecast(parent){
 export function appendDetails(parent){
     if (weatherData.current) {//TODO: loop this for 3 days and append info
         //wind
-        console.log(weatherData.current.wind_kph);
-        console.log(weatherData.current.wind_dir);
+        let windSpeed = weatherData.current.wind_kph;
+        let windDirection = weatherData.current.wind_dir;
         //precip
-        console.log(weatherData.current.precip_mm);
-        console.log(weatherData.forecast.forecastday[0].day.totalprecip_mm);
+        let precipitation = weatherData.current.precip_mm;
+        let forecastedPP = weatherData.forecast.forecastday[0].day.totalprecip_mm;
         //humidity
-        console.log(weatherData.current.humidity);
+        let humidity = weatherData.current.humidity;
         //UV
-        console.log(weatherData.current.uv);
+        let uv = weatherData.current.uv;
         //temp
-        console.log(weatherData.forecast.forecastday[0].day.maxtemp_c);
-        console.log(weatherData.forecast.forecastday[0].day.avgtemp_c);
-        console.log(weatherData.forecast.forecastday[0].day.mintemp_c);
+        let maxTemp = weatherData.forecast.forecastday[0].day.maxtemp_c;
+        let avgTemp = weatherData.forecast.forecastday[0].day.avgtemp_c;
+        let minTemp = weatherData.forecast.forecastday[0].day.mintemp_c;
         //astro
-        console.log(weatherData.forecast.forecastday[0].astro.sunrise);
-        console.log(weatherData.forecast.forecastday[0].astro.sunset);
+        let sunriseTime = weatherData.forecast.forecastday[0].astro.sunrise;
+        let sunset = weatherData.forecast.forecastday[0].astro.sunset;
     } else {
         console.log('No data found for the search keyword.');
     }

@@ -1,4 +1,4 @@
-import { getWeather, appendCurrentWeather, weatherData, appendDailyForecast, appendDetails} from './apiHandler';
+import { getWeather, appendCurrentWeather, appendDailyForecast, appendDetails} from './apiHandler';
 
 const body = document.querySelector('body');
 
