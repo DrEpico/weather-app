@@ -51,20 +51,32 @@ export function appendDetails(parent){
         //wind
         let windSpeed = weatherData.current.wind_kph;
         let windDirection = weatherData.current.wind_dir;
+        let windElement = document.querySelector('#wind');
+        windElement.textContent = windSpeed + " " + windDirection;
         //precip
         let precipitation = weatherData.current.precip_mm;
         let forecastedPP = weatherData.forecast.forecastday[0].day.totalprecip_mm;
+        let percipElement = document.querySelector('#precipitation');
+        percipElement.textContent = precipitation + " " + forecastedPP;
         //humidity
         let humidity = weatherData.current.humidity;
+        let humidityElement = document.querySelector('#humidity');
+        humidityElement.textContent = humidity;
         //UV
         let uv = weatherData.current.uv;
+        let uvElement = document.querySelector('#uv');
+        uvElement.textContent = uv;
         //temp
         let maxTemp = weatherData.forecast.forecastday[0].day.maxtemp_c;
         let avgTemp = weatherData.forecast.forecastday[0].day.avgtemp_c;
         let minTemp = weatherData.forecast.forecastday[0].day.mintemp_c;
+        let tempreture = document.querySelector('#tempreture');
+        tempreture.textContent = maxTemp + " " + avgTemp + " " + minTemp;
         //astro
         let sunriseTime = weatherData.forecast.forecastday[0].astro.sunrise;
         let sunset = weatherData.forecast.forecastday[0].astro.sunset;
+        let astro = document.querySelector('#astro1');
+        astro.textContent = sunriseTime + " " + sunset;
     } else {
         console.log('No data found for the search keyword.');
     }
