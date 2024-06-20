@@ -166,4 +166,7 @@ small {font-size: 0.600rem; /* 9.6px */}
     --accent-950: hsl(210, 23%, 95%);
   
 }
-  
+
+#forecast {
+  display: flex;
+}

@@ -35,18 +35,20 @@ export function appendCurrentWeather(parent){
     }
 }
 
-export async function appendDailyForecast(parent){
+export async function appendDailyForecast(){
     if (weatherData.current) {//TODO: loop this for 3 days and append info
         for(let i = 0; i < 3; i++){
-            console.log(weatherData.forecast.forecastday[i].day.condition.text);
-            console.log(weatherData.forecast.forecastday[i].day.avgtemp_c);
+            let dayn = document.querySelector(`#day${i+1}`);
+            let condition = weatherData.forecast.forecastday[i].day.condition.text;
+            let tempreture = weatherData.forecast.forecastday[i].day.avgtemp_c;
+            dayn.textContent = condition + " " + tempreture;
         }
     } else {
         console.log('No data found for the search keyword.');
     }
 }
 
-export function appendDetails(parent){
+export function appendDetails(){
     if (weatherData.current) {//TODO: loop this for 3 days and append info
         //wind
         let windSpeed = weatherData.current.wind_kph;
