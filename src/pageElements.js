@@ -1,4 +1,4 @@
-import { getWeather, appendCurrentWeather, appendDailyForecast, appendDetails} from './apiHandler';
+import { getWeather, appendCurrentWeather, appendDailyForecast, appendDetails, appendHourlyForecast} from './apiHandler';
 
 const body = document.querySelector('body');
 
@@ -45,9 +45,10 @@ function addSearchBox(parent){
     searchButton.addEventListener('click', async function(){
         let searchContent = searchBox.value.trim();
         await getWeather(searchContent);
-        appendCurrentWeather(parent);
-        appendDailyForecast(parent);
-        appendDetails(parent);
+        appendCurrentWeather();
+        appendDailyForecast();
+        appendDetails();
+        appendHourlyForecast()
     });
 }
 
@@ -58,7 +59,7 @@ export function addInfoPane(parent) {
     let info = document.createElement('div');
     info.id = "info";
 
-    let infoIds = ['wind', 'humidity', 'precipitation', 'tempreture', 'uv', 'astro1'];
+    let infoIds = ['wind', 'humidity', 'precipitation', 'tempreture', 'uv', 'astro'];
     infoIds.forEach(id => {
         let div = document.createElement('div');
         div.id = id;

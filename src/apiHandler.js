@@ -77,10 +77,17 @@ export function appendDetails(){
         //astro
         let sunriseTime = weatherData.forecast.forecastday[0].astro.sunrise;
         let sunset = weatherData.forecast.forecastday[0].astro.sunset;
-        let astro = document.querySelector('#astro1');
+        let astro = document.querySelector('#astro');
         astro.textContent = sunriseTime + " " + sunset;
     } else {
         console.log('No data found for the search keyword.');
     }
+}
+
+const now = new Date();
+
+export function appendHourlyForecast(){
+    let currentTime = now.getHours();
+    console.log(currentTime);
 }
 
