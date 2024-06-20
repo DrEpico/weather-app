@@ -194,16 +194,15 @@ body {
   display: flex;
 }
 
-#details {
+#info {
   grid-area: details;
   display: grid;
   grid-template-columns: 300px 1fr; 
   grid-template-rows: 4em 1fr;
+  display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
   gap: 10px;
-  grid-template-areas: 
-    "wind humidity precipitation"
-    "tempreture uv astro"
-    "hourly hourly hourly"
 }
 
 .info-card {

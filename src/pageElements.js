@@ -58,7 +58,7 @@ export function addInfoPane(parent) {
     let info = document.createElement('div');
     info.id = "info";
 
-    let infoIds = ['wind', 'humidity', 'precipitation', 'pressure', 'tempreture', 'uv', 'astro1', 'astro2', 'astro3'];
+    let infoIds = ['wind', 'humidity', 'precipitation', 'tempreture', 'uv', 'astro1'];
     infoIds.forEach(id => {
         let div = document.createElement('div');
         div.id = id;
