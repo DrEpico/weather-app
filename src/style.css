@@ -167,11 +167,33 @@ small {font-size: 0.600rem; /* 9.6px */}
   
 }
 
+body {
+  background-color: var(--background-50);
+    font-family: Poppins;
+    margin: 0px;
+    /* margin: var(--margin-lg); */
+    gap: 20px;
+
+    display: grid;
+    grid-template-columns: 300px 1fr; 
+    grid-template-rows: 4em 1fr;
+    grid-template-areas: 
+      "mainPane details details details"
+      "mainPane details details details"
+      "mainPane details details details"
+      "mainPane details details details"
+}
+
 #mainPane {
+  grid-area: mainPane;
   display: flex;
   flex-direction: column;
 }
 
 #forecast {
   display: flex;
+}
+
+#details {
+  grid-area: details
 }
