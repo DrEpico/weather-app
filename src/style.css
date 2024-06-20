@@ -169,19 +169,19 @@ small {font-size: 0.600rem; /* 9.6px */}
 
 body {
   background-color: var(--background-50);
-    font-family: Poppins;
-    margin: 0px;
-    /* margin: var(--margin-lg); */
-    gap: 20px;
+  font-family: Poppins;
+  margin: 0px;
+  /* margin: var(--margin-lg); */
+  gap: 20px;
 
-    display: grid;
-    grid-template-columns: 300px 1fr; 
-    grid-template-rows: 4em 1fr;
-    grid-template-areas: 
-      "mainPane details details details"
-      "mainPane details details details"
-      "mainPane details details details"
-      "mainPane details details details"
+  display: grid;
+  grid-template-columns: 300px 1fr; 
+  grid-template-rows: 4em 1fr;
+  grid-template-areas: 
+    "mainPane details details details"
+    "mainPane details details details"
+    "mainPane details details details"
+    "mainPane details details details"
 }
 
 #mainPane {
@@ -195,5 +195,47 @@ body {
 }
 
 #details {
-  grid-area: details
+  grid-area: details;
+  display: grid;
+  grid-template-columns: 300px 1fr; 
+  grid-template-rows: 4em 1fr;
+  gap: 10px;
+  grid-template-areas: 
+    "wind humidity precipitation"
+    "tempreture uv astro"
+    "hourly hourly hourly"
+}
+
+.info-card {
+  background-color: #ddd;
+  padding: 20px;
+  text-align: center;
+}
+
+#wind {
+  grid-area: "wind";
+}
+
+#humidity {
+  grid-area: "humidity";
+}
+
+#precipitation {
+  grid-area: "precipitation";
+}
+
+#tempreture {
+  grid-area: "tempreture";
+}
+
+#uv {
+  grid-area: "uv";
+}
+
+#astro1 {
+  grid-area: "astro";
+}
+
+#hourly {
+  grid-area: "hourly";
 }

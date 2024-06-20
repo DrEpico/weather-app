@@ -62,6 +62,7 @@ export function addInfoPane(parent) {
     infoIds.forEach(id => {
         let div = document.createElement('div');
         div.id = id;
+        div.classList.add('info-card');
         info.appendChild(div);
     });
 
