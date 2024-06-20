@@ -89,5 +89,8 @@ const now = new Date();
 export function appendHourlyForecast(){
     let currentTime = now.getHours();
     console.log(currentTime);
+    for(let i = 0; i < 10; i++){
+        console.log(weatherData.forecast.forecastday[0].hour[currentTime+i]);
+    }
 }
 
