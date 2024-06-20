@@ -167,6 +167,11 @@ small {font-size: 0.600rem; /* 9.6px */}
   
 }
 
+#mainPane {
+  display: flex;
+  flex-direction: column;
+}
+
 #forecast {
   display: flex;
 }

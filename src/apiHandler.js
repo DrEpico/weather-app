@@ -11,7 +11,7 @@ export async function getWeather(searchContent){
     }
 }
 
-export function appendCurrentWeather(parent){
+export function appendCurrentWeather(){
     let currentWeatherElement;
     let tempretureElement;
     let isDayElement;
