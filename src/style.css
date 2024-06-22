@@ -237,4 +237,5 @@ body {
 
 #hourly {
   grid-area: "hourly";
+  display: flex;
 }
