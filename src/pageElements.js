@@ -73,6 +73,7 @@ export function addInfoPane(parent) {
     for (let i = 1; i <= 10; i++) {
         let hour = document.createElement('div');
         hour.classList.add('hour');
+        hour.id = `hour${i}`;
         hourly.appendChild(hour);
     }
 
