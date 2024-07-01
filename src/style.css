@@ -238,4 +238,10 @@ body {
 #hourly {
   grid-area: "hourly";
   display: flex;
+  justify-content: space-between; /*or space-around*/
+}
+
+.hour {
+  width: 10%;
+  text-align: center;
 }
