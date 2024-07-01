@@ -91,9 +91,17 @@ export function appendHourlyForecast(){
     console.log(currentTime);
     for(let i = 1; i <= 10; i++){
         let hour = document.querySelector(`#hour${i}`);
-        let hourForecastData = weatherData.forecast.forecastday[0].hour[currentTime+i].condition.text;
-        hour.textContent = hourForecastData;
-        console.log(hourForecastData);
+        let hourCondition = weatherData.forecast.forecastday[0].hour[currentTime+i-10].condition.text;
+        let hourIcon = weatherData.forecast.forecastday[0].hour[currentTime+i-10].condition.icon;
+        let hourTemp = weatherData.forecast.forecastday[0].hour[currentTime+i-10].temp_c;
+        let condition = hour.querySelector('.condition');
+        condition.textContent = hourCondition;
+        let icon = hour.querySelector('.icon');
+        icon.src = hourIcon;
+        icon.alt = hourCondition
+        let temperature = hour.querySelector('.temperature');
+        temperature.textContent = hourTemp;
+        console.log(hourCondition);
     }
 }
 
