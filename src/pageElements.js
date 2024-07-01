@@ -70,11 +70,21 @@ export function addInfoPane(parent) {
     let hourly = document.createElement('div');
     hourly.id = "hourly";
 
-    for (let i = 1; i <= 10; i++) {
+     for (let i = 1; i <= 10; i++) {
         let hour = document.createElement('div');
         hour.classList.add('hour');
         hour.id = `hour${i}`;
         hourly.appendChild(hour);
+
+        let condition = document.createElement('div');
+        condition.classList.add('condition');
+        let icon = document.createElement('img');
+        icon.classList.add('icon');
+        let temperature = document.createElement('div');
+        temperature.classList.add('temperature');
+        hour.appendChild(condition);
+        hour.appendChild(icon);
+        hour.appendChild(temperature);
     }
 
     detailsPane.appendChild(info);
