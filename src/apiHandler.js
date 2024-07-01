@@ -3,7 +3,7 @@ export let weatherData;
 
 export async function getWeather(searchContent){
     try {
-        const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=195157837b034a1d883103942240706&q=${searchContent}&days=3&aqi=yes&alerts=yes`, {mode: 'cors'});
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=195157837b034a1d883103942240706&q=${searchContent}&days=3&aqi=yes&alerts=yes`, {mode: 'cors'});
         weatherData = await response.json();//parse to js object from json
         console.log(weatherData);
     } catch (error) {
