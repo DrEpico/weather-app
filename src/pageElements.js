@@ -16,7 +16,7 @@ export function addMainPane(parent){
     mainPane.appendChild(search);// This needs to be before addSearchBox to avoid null
     addSearchBox(search);
 
-    let animation = document.createElement('div');
+    let animation = document.createElement('img');
     animation.id = "animation";
     let threeDaysFC = document.createElement('div');
     threeDaysFC.id = "forecast";

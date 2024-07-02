@@ -30,6 +30,9 @@ export function appendCurrentWeather(){
         cwElement.appendChild(currentWeatherElement);
         cwElement.appendChild(tempretureElement);
         cwElement.appendChild(isDayElement);
+
+        let image = document.querySelector('#animation');
+        image.src = "../src/img/icons/weatherImages/pexels-brett-sayles-1431822.jpg";
     } else {
         console.log('No data found for the search keyword.');
     }
