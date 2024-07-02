@@ -11,6 +11,23 @@ export async function getWeather(searchContent){
     }
 }
 
+export async function getLocation(){//get an about location to avoid showing an empty website until user enters a location
+    try{
+        const response = await fetch('https://ipapi.co/json/');
+        const locationData = await response.json();
+        console.log('Location data:', locationData);
+        const city = locationData.city;
+        await getWeather(city); // Ensure getWeather is awaited
+        appendCurrentWeather();
+        appendDailyForecast();
+        appendDetails();
+        appendHourlyForecast();
+        
+    } catch(error){
+        console.error('Error fetching location data:', error);
+    } 
+}
+
 export function appendCurrentWeather(){
     let currentWeatherElement;
     let tempretureElement;
