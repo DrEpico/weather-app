@@ -174,24 +174,31 @@ body {
   /* margin: var(--margin-lg); */
   gap: 20px;
 
-  display: grid;
-  grid-template-columns: 300px 1fr; 
+  display: flex;
+  /* grid-template-columns: 300px 1fr; 
   grid-template-rows: 4em 1fr;
   grid-template-areas: 
     "mainPane details details details"
     "mainPane details details details"
     "mainPane details details details"
-    "mainPane details details details"
+    "mainPane details details details" */
 }
 
 #mainPane {
   grid-area: mainPane;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  width: 25%;
 }
 
 #forecast {
   display: flex;
+}
+
+#details {
+  width: 75%;
+  flex-grow: 2;
 }
 
 #info {

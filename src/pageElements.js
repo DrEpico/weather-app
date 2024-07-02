@@ -4,12 +4,18 @@ const body = document.querySelector('body');
 
 export function addMainPane(parent){
     let mainPane = document.createElement('div');
-    mainPane.id = "mainPane"
+    mainPane.id = "mainPane";
+
     let currentWeather = document.createElement('div');
     currentWeather.id = "currentWeather";
+
     let search = document.createElement('div');
     search.id = "search";
+
+    mainPane.appendChild(currentWeather); 
+    mainPane.appendChild(search);// This needs to be before addSearchBox to avoid null
     addSearchBox(search);
+
     let animation = document.createElement('div');
     animation.id = "animation";
     let threeDaysFC = document.createElement('div');
@@ -26,21 +32,20 @@ export function addMainPane(parent){
         threeDaysFC.appendChild(tomorrow);
         threeDaysFC.appendChild(dayTwo);
         threeDaysFC.appendChild(dayThree);
-    mainPane.appendChild(currentWeather);
-    mainPane.appendChild(search);
+
     mainPane.appendChild(animation);
     mainPane.appendChild(threeDaysFC);
     parent.appendChild(mainPane);
 }
 
 function addSearchBox(parent){
-    let searchDiv = document.createElement('div');
     let searchBox = document.createElement('input');
+    searchBox.id = "searchBox"; // Add an id to the search box for easier selection later if needed
     let searchButton = document.createElement('button');
     searchButton.textContent = "Search";
-    searchDiv.appendChild(searchBox);
-    searchDiv.appendChild(searchButton);
-    parent.appendChild(searchDiv);
+    
+    parent.appendChild(searchBox);
+    parent.appendChild(searchButton);
 
     searchButton.addEventListener('click', async function(){
         let searchContent = searchBox.value.trim();
@@ -48,7 +53,7 @@ function addSearchBox(parent){
         appendCurrentWeather();
         appendDailyForecast();
         appendDetails();
-        appendHourlyForecast()
+        appendHourlyForecast();
     });
 }
 
