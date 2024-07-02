@@ -42,6 +42,7 @@ function addSearchBox(parent){
     let searchBox = document.createElement('input');
     searchBox.id = "searchBox"; // Add an id to the search box for easier selection later if needed
     let searchButton = document.createElement('button');
+    searchButton.id = 'searchBtn';
     searchButton.textContent = "Search";
     
     parent.appendChild(searchBox);
