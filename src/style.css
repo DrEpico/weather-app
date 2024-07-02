@@ -192,6 +192,15 @@ body {
   width: 25%;
 }
 
+#currentWeather {
+  display: flex;
+}
+
+#data {
+  display: flex;
+  flex-direction: column;
+}
+
 #search {
   width: 100%;
   display: flex;
@@ -208,11 +217,6 @@ body {
   /* width: 20%; */
   flex-grow: 1;
   font-size: 1.2rem;
-}
-
-#currentWeather {
-  display: flex;
-  flex-direction: column;
 }
 
 #forecast {

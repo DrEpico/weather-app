@@ -29,10 +29,18 @@ export async function getLocation(){//get an about location to avoid showing an 
 }
 
 export function appendCurrentWeather(){
+
+    let iconElement;
     let currentWeatherElement;
     let tempretureElement;
     let isDayElement;
     if (weatherData.current) {
+        iconElement = document.createElement('img');
+        iconElement.id = 'mainIcon';
+        let currentIcon = weatherData.current.condition.icon;
+        iconElement.src = currentIcon;
+        let dataDiv = document.createElement('div');
+        dataDiv.id = 'data';
         currentWeatherElement = document.createElement('span');
         tempretureElement = document.createElement('span');
         isDayElement = document.createElement('span');
@@ -44,9 +52,13 @@ export function appendCurrentWeather(){
         tempretureElement.textContent = tempreture;
         isDayElement.textContent = isDay;
         let cwElement = document.querySelector('#currentWeather');
-        cwElement.appendChild(currentWeatherElement);
-        cwElement.appendChild(tempretureElement);
-        cwElement.appendChild(isDayElement);
+        cwElement.appendChild(iconElement);
+        dataDiv.appendChild(currentWeatherElement);
+        dataDiv.appendChild(tempretureElement);
+        dataDiv.appendChild(isDayElement);
+        cwElement.appendChild(dataDiv);
+
+
 
         let image = document.querySelector('#animation');
         image.src = "../src/img/icons/weatherImages/pexels-brett-sayles-1431822.jpg";
